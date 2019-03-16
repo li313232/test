@@ -1,0 +1,19 @@
+#include <stdio.h>
+void Sort(int *s, int left, int right)
+{ int i, j, min, tmp;
+for(i = left; i < right; i++)
+	{ for(min = i, j = i + 1; j <= right; j++)
+	if(s[j] < s[min]) min = j;
+if(min != i)
+	tmp = s[i], s[i] = s[min], s[min] = tmp;
+}
+}
+int  main( )
+{ int i, s[1000], length = 0, data;
+ scanf("%d", &data);
+  while(data > 0)
+	{ s[length++] = data;
+  scanf("%d", &data); }
+   Sort(s, 0, length - 1);
+    for(i = 0; i < length; i++)
+		printf("%-4d", s[i]);}
